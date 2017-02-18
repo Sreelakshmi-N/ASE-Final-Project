@@ -26,7 +26,7 @@
         }
     </script>-->
 
-    <script>
+    <script type="text/javascript">
         function store(){
             var inputName= document.getElementById("name");
             var inputEmail= document.getElementById("email");
@@ -39,6 +39,44 @@
             localStorage.setItem("password", inputPassword.value);
             localStorage.setItem("cpassword", inputcPassword.value);
         }
+        function myFunction() {
+            var pass = document.getElementById("password").value;
+            var passconf = document.getElementById("cpassword").value;
+            var ok = true;
+            if (pass != passconf) {
+                //alert("Passwords Do not match");
+                alert("Passwords are not Matched!!!");
+                document.getElementById("password").style.borderColor = "#E34234";
+                document.getElementById("cpassword").style.borderColor = "#E34234";
+                ok = false;
+            }
+            
+
+
+        }
+        function validate() {
+            if(form.password.value.length<8)
+            {
+                document.getElementById("errfn").innerHTML="enter maximum of 8 characters ";
+            }
+        }
+        function ValidateEmail(inputText)
+        {
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if(inputText.value.match(mailformat))
+            {
+                document.form.email.focus();
+                return true;
+            }
+            else
+            {
+                alert("You have entered an invalid email address!");
+                window.location="Home.html";
+                return false;
+            }
+        }
+
+
     </script>
 
     <!-- Website CSS style -->
@@ -63,7 +101,7 @@
             </div>
         </div>
         <div class="main-login main-center">
-            <form class="form-horizontal" method="post" action="Index.html">
+            <form class="form-horizontal" method="post"  name="form">
                 <div class="login-register">
                     Doctor?<a href="Register2.html">Register Here</a>
                 </div>
@@ -82,7 +120,7 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-                            <input type="email" class="form-control" name="email" id="email"  placeholder="Enter your Email"/>
+                            <input type="text" class="form-control" name="email" id="email"  placeholder="Enter your Email" />
                         </div>
                     </div>
                 </div>
@@ -102,9 +140,10 @@
                     <div class="cols-sm-10">
                         <div class="input-group">
                             <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-                            <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password"/>
+                            <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password" onblur="validate()"/>
                         </div>
                     </div>
+                    <div id="errfn">   </div>
                 </div>
 
                 <div class="form-group">
@@ -118,7 +157,7 @@
                 </div>
 
                 <div class="form-group">
-                    <a href="Index.html"><button type="button" class="btn btn-primary btn-lg btn-block login-button" onClick="store()">Register</button></a>
+                    <a href="Index.html"><button type="button" class="btn btn-primary btn-lg btn-block login-button" onclick="myFunction();store();ValidateEmail(document.form.email)" action="index.html">Register</button></a>
                 </div>
                 <div class="login-register">
                     <a href="Index.html">Login</a>
