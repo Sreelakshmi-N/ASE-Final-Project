@@ -84,6 +84,7 @@ a [class*=" fw-icon-"] {
   width: 2.142857142857143em;
   text-align: center;
   line-height: inherit;
+
 }
 [class^="fw-icon-"].hide,
 [class*=" fw-icon-"].hide {
