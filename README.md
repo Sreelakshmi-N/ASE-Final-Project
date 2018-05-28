@@ -1,4 +1,4 @@
-# ASE-Final-Project
+# FETTLE UP (ASE-Final-Project)
 
 Here are the links for the ASE project proposal and increment.
  
